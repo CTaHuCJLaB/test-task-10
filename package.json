@@ -1,0 +1,36 @@
+{
+  "name": "fun-oeuvre-maker",
+  "type": "module",
+  "private": true,
+  "overrides": {
+    "vue": "latest"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "deploy": "cd .nuxt/dist/server && rsync --archive --compress --delete . svkaz@funoeuvremaker.ru:/var/www/funoeuvremaker.ru/html/frontend/server && cd ../client  && rsync --archive --compress --delete . svkaz@funoeuvremaker.ru:/var/www/funoeuvremaker.ru/html/frontend/client && cd ../../../.output && rsync --archive --compress --delete . svkaz@funoeuvremaker.ru:/var/www/funoeuvremaker.ru/html/frontend/.output"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/style-resources": "1.2.1",
+    "@pinia/nuxt": "0.4.11",
+    "@types/node": "18.16.19",
+    "jquery": "3.7.0",
+    "lodash": "4.17.21",
+    "nuxt": "3.6.2",
+    "pinia": "2.1.4",
+    "pug": "3.0.2",
+    "pug-plain-loader": "1.1.0",
+    "sass": "1.63.6",
+    "sass-loader": "13.3.2"
+  },
+  "dependencies": {
+    "client-zip": "2.4.4",
+    "file-saver": "2.0.5",
+    "npm": "^8.19.4"
+  }
+}

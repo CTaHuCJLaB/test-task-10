@@ -1,0 +1,57 @@
+<template lang="pug" >
+.main
+    .section
+        base-ctable(:countries="relevantСountries")
+</template>
+
+<script>
+import { useStore } from '@/stores/store.js';
+
+definePageMeta({
+    layout: "default",
+});
+
+export default {
+    setup() {
+        definePageMeta({
+            validate: async ({ params }) => {
+                const store = useStore();
+                const relevantСountries = store.countries
+                    .filter(
+                        ({ iso_3166_1_a2 }) =>
+                            iso_3166_1_a2.toLowerCase() === params.id.toLowerCase()
+                    );
+
+                return relevantСountries.length !== 0;
+            }
+        });
+        const store = useStore();
+        const route = useRoute();
+        const relevantСountries = store.countries
+            .filter( // приходится дублировать код, так как по-другому не работает
+                ({ iso_3166_1_a2 }) => 
+                    iso_3166_1_a2.toLowerCase() === route.params.id.toLowerCase()
+        );
+
+        return { relevantСountries };
+    },
+}
+</script>
+
+
+<style lang="scss">
+.main {
+    font-family: 'Roboto Slab', 'Times New Roman', serif;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1519' height='529' fill='none'%3E%3Cpath fill='url(%23a)' fill-opacity='.61' d='m1239.75 161.371 124.72 155.606L1170 204.699l69.75-43.328Z'/%3E%3Cpath fill='url(%23b)' fill-opacity='.61' d='m1044.47 143.549-152.062 42.714L1069.38 48.036l-24.91 95.513Z'/%3E%3Cpath fill='url(%23c)' fill-opacity='.61' d='m707 500.5-88.745-21.425L821.2 402.496 707 500.5Z'/%3E%3Cpath fill='url(%23d)' fill-opacity='.61' d='m1510.46 406.805-138.38 68.345-13.22-108.556 151.6 40.211Z'/%3E%3Cpath fill='url(%23e)' fill-opacity='.61' d='m44.21 379.387 116.556 25.793-73.691 98.733L44.21 379.387Z'/%3E%3Cpath fill='url(%23f)' fill-opacity='.61' d='m1455.5 112.909-25.08 120.406-112.65-141.013 137.73 20.607Z'/%3E%3Cpath fill='url(%23g)' fill-opacity='.61' d='m560 73.615 167.38 48.731-92.735 51.651L560 73.615Z'/%3E%3Cpath fill='url(%23h)' fill-opacity='.61' d='m297.642 109.059 182.168-34.47-125.439 131.799-56.729-97.329Z'/%3E%3Cpath fill='url(%23i)' fill-opacity='.61' d='M72.494 261.422 144.341 106l59.814 86.935-131.661 68.487Z'/%3E%3Cpath fill='url(%23j)' fill-opacity='.61' d='m1294.1 484.611-125.21-52.736 76.43-96.326 48.78 149.062Z'/%3E%3Cpath fill='url(%23k)' fill-opacity='.61' d='M243.255 470.596 205.101 306l183.293 133.412-145.139 31.184Z'/%3E%3Cdefs%3E%3ClinearGradient id='a' x1='1303.43' x2='1267.24' y1='198.139' y2='260.838' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.351' stop-color='%23325815' stop-opacity='.4'/%3E%3Cstop offset='1' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='1050.77' x2='1013.5' y1='137.071' y2='75.204' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23325815' stop-opacity='.5'/%3E%3Cstop offset='.888' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='732' x2='701.784' y1='478' y2='381.994' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23325815' stop-opacity='.5'/%3E%3Cstop offset='.37' stop-color='%23325815' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='d' x1='1474.53' x2='1196.36' y1='398.399' y2='442.449' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.026' stop-color='%23325815' stop-opacity='.5'/%3E%3Cstop offset='.432' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='e' x1='23' x2='243.068' y1='454' y2='504.668' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.15' stop-color='%23325815' stop-opacity='.5'/%3E%3Cstop offset='.495' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='f' x1='1450.1' x2='1255.82' y1='98.138' y2='259.652' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.188' stop-color='%23325815' stop-opacity='.5'/%3E%3Cstop offset='.427' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='g' x1='531' x2='559.369' y1='37' y2='196.799' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.26' stop-color='%23325815' stop-opacity='.5'/%3E%3Cstop offset='.892' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='h' x1='346.552' x2='417.091' y1='53.263' y2='140.489' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.258' stop-color='%23325815' stop-opacity='.45'/%3E%3Cstop offset='1' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='i' x1='52.907' x2='174.248' y1='232.954' y2='149.467' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.24' stop-color='%23325815' stop-opacity='.45'/%3E%3Cstop offset='1' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='j' x1='1324.74' x2='1268.1' y1='418.15' y2='340.435' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.24' stop-color='%23325815' stop-opacity='.4'/%3E%3Cstop offset='1' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='k' x1='214.425' x2='430.344' y1='501.194' y2='297.881' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.179' stop-color='%23325815' stop-opacity='.45'/%3E%3Cstop offset='.579' stop-color='%23D2A87E' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(to bottom, #b8a864e7, #b8a864e7 50% 100%);
+    background-position: center -95px, 0 0;
+    box-shadow: 0 2px 23px #00000040 inset;
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+</style>

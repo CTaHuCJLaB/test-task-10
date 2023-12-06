@@ -1,0 +1,5 @@
+html {
+    @include mq($maxMobileWidth) {
+        flex-grow: 1;
+    }
+}

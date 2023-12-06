@@ -1,0 +1,17 @@
+.h-shown-on-mobile {
+    @include mq($minTabletWidth, $maxDesktopWidth) {
+        display: none;
+    }
+}
+
+.h-hidden-on-mobile {
+    @include mq($maxMobileWidth) {
+        display: none;
+    }
+}
+
+.h-shown-on-desktop{
+    @include mq($maxTabletWidth) {
+        display: none;
+    }
+}

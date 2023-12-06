@@ -1,0 +1,106 @@
+@include fontface(
+    'Rubik Glitch', 'Rubik Glitch',
+    'rubik-glitch-v2-latin_cyrillic-regular',
+    400, normal,
+);
+@include fontface(
+    'Cormorant Garamond', 'Cormorant Garamond',
+    'cormorant-garamond-v16-latin_cyrillic-regular',
+    400, normal,
+);
+@include fontface(
+    'Cormorant Garamond', 'Cormorant Garamond',
+    'cormorant-garamond-v16-latin_cyrillic-600',
+    600, normal,
+);
+@include fontface(
+    'Roboto Slab', 'Roboto Slab',
+    'roboto-slab-v24-latin_cyrillic-regular', 400, normal,
+);
+@include fontface(
+    'Roboto Slab', 'Roboto Slab',
+    'roboto-slab-v24-latin_cyrillic-500', 500, normal,
+);
+@include fontface(
+    'Ubuntu', 'Ubuntu',
+    'ubuntu-v20-latin_cyrillic-regular', 400, normal,
+);
+@include fontface(
+    'Ubuntu', 'Ubuntu',
+    'ubuntu-v20-latin_cyrillic-500', 500, normal,
+);
+
+::selection {
+    color: #8e9101;
+    background: #235007d9;
+}
+
+html {
+    font-family: Ubuntu, Arial, sans-serif;
+    font-size: 19px;
+    line-height: 22px;
+    
+    @include mq(559) {
+        line-height: 23px;
+    }
+
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    position: relative;
+    display: grid;
+    min-width: #{$minMobileWidth}px;
+    min-height: 100%;
+    padding: 0;
+    letter-spacing: normal;
+    text-align: left;
+    word-break: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: #575d04;
+    background-color: #b1946e;
+    background-repeat: no-repeat;
+    background-position: top center;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+
+picture {
+    max-width: 100%;
+    height: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+a,
+button {
+    color: inherit;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    appearance: none;
+    margin: 0;
+}
