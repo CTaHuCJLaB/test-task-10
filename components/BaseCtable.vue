@@ -12,8 +12,8 @@ table.country-table
             td.country-table__data-cell {{ country.iso_3166_1_a2 }}
             td.country-table__data-cell {{ country.iso_3166_1_a3 }}
             td.country-table__data-cell {{ country.iso_3166_1_numeric }}
-            td.country-table__data-cell.country-table__cell--name {{ country.name }}
-            td.country-table__data-cell.country-table__cell--name {{ country.printable_name }}
+            td.country-table__data-cell.country-table__data-cell--name {{ country.printable_name }}
+            td.country-table__data-cell.country-table__data-cell--name {{ country.name }}
             td.country-table__data-cell {{ country.is_shipping_country ? 'Да' : 'Нет'}}
 </template>
 
@@ -47,7 +47,8 @@ export default {
         border: 1px solid #59621ec0;
     }
 
-    &__cell--name {
+    &__data-cell--name {
+        padding-left: 10px;
         text-align: left;
     }
 }
